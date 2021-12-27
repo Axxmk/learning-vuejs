@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+
+	<title>My Friend</title>
+</head>
+
+<body>
+	<div id="app">
+		<h1 v-if="count == 0">No Friend ;-;</h1>
+		<template v-else-if="count > 0">
+			<button @click="clear" class="addButton">clear</button>
+			<h2>Friends count: {{count}}</h2>
+			<template v-for="(person, index) in Person">
+				<h3 :class="person.gender=='Male' ? 'male' : 'female'" @click="remove(index)" :key="person.id">
+					{{index+1}}&nbsp; {{person.name}}
+					&nbsp;&nbsp; :
+					&nbsp; {{person.age}} years old
+				</h3>
+				<button v-if="isEdit" @click="selected(index)" class="addButton">edit</button>
+				<br>
+			</template>
+
+		</template>
+
+		<template v-if="!isEdit">
+			<div class="form">
+				<div>
+					<button @click="add" class="addButton">add</button>
+					<button v-if="count > 0" @click="isEdit = true" class="addButton">edit</button>
+				</div>
+				<input type="text" placeholder="Name" v-model="newFriend.name">
+				<input type="number" placeholder="age" v-model="newFriend.age">
+				<div>
+					<select v-model="newFriend.gender">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+			</div>
+		</template>
+		<template v-else>
+			<div class="form">
+				<div>
+					<button @click="isEdit = false" class="addButton">Back</button>
+					<button v-if="count > 0" @click="update" class="addButton">update</button>
+				</div>
+				<input v-if="count > 0" id="editName" type="text" placeholder="Name"
+					:value="Person[selectedPerson].name">
+				<input v-if="count > 0" id="editAge" type="number" placeholder="age"
+					:value="Person[selectedPerson].age">
+				<div>
+					<select v-if="count > 0" id="editGender" :value="Person[selectedPerson].gender">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+			</div>
+		</template>
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	<script src="start.js"></script>
+</body>
+
+</html>

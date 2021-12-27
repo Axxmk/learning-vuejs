@@ -1,0 +1,54 @@
+body,
+button,
+input,
+select {
+	font-family: 'Itim', cursive;
+}
+
+#app input {
+	width: 20vw;
+	margin: 1rem 0;
+	padding: 0.5rem;
+	border: 2.5px solid rgb(238, 165, 81);
+	border-radius: 24px;
+}
+
+#app input:focus {
+	outline: none;
+	box-shadow: 0 2px 6px 1px rgb(236, 222, 173);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.addButton {
+	padding: 0.5rem 1rem;
+	background: white;
+	border: 2px solid rgb(238, 207, 97);
+	color: rgb(238, 207, 97);
+	font-weight: 600;
+	outline: none;
+	border-radius: 20px;
+	transition: 0.5s;
+	text-transform: uppercase;
+}
+
+.addButton:hover {
+	color: white;
+	background: rgb(238, 207, 97);
+}
+
+.male {
+	color: rgb(49, 190, 255);
+	display: inline-block;
+	margin: 5px;
+}
+
+.female {
+	color: rgb(255, 133, 174);
+	display: inline-block;
+	margin: 5px;
+}

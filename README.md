@@ -1,2 +1,2 @@
-# learning-vuejs
-Simple projects while learning Vue.js
+# Learning Vuejs
+My own simple projects while learning Vue.js
